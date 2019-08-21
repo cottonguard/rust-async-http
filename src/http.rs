@@ -7,6 +7,7 @@ use std::{collections::HashMap, future::Future, io, rc::Rc};
 
 pub trait HttpApp {
     type Output: Future<Output = Response>;
+    // TODO: &self to &mut self
     fn app(&self, req: Request) -> Self::Output;
 }
 
